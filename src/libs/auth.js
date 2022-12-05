@@ -26,6 +26,7 @@ const Auth = {
 	getToken: (headers, body) => {
 		if (headers && headers.authorization && headers.authorization.split(' ')[1] && body && body['access_token']) {
 			// return Error.INVALID
+			delete body['access_token']
 		}
 		const token = (headers && headers.authorization && headers.authorization.split(' ')[1]) || (body && body['access_token'])
 		return token || Error.UNAUTHORIZED
