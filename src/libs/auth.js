@@ -34,7 +34,7 @@ const Auth = {
 		console.log('HEADERS:', headers)
 		console.log('BODY:', JSON.stringify(body))
 		if (headers.authorization && headers.authorization.split(' ')[1] && body['access_token']) {
-			return Error.INVALID
+			// return Error.INVALID
 		}
 		const token = Auth.getToken(headers, body)
 		if (!token || token.error) {
