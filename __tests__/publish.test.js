@@ -50,6 +50,16 @@ describe('publish', () => {
 			expect(res.filename).toContain('articles/')
 		})
 
+		test('add article with HTML content', async () => {
+			entry['name'] = 'Title'
+			entry['content'] = {
+				html: form['content']
+			}
+			const res = await publish.addContent(entry)
+			expect(res).toHaveProperty('filename')
+			expect(res.filename).toContain('articles/')
+		})
+
 		test('add like', async () => {
 			const getPageTitle = jest.spyOn(parse, 'getPageTitle')
 			getPageTitle.mockReturnValue('PAGE TITLE')
