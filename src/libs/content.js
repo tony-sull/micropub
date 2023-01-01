@@ -27,7 +27,7 @@ const content = {
 			output['client_id'] = clientId
 		}
 
-		return matter.stringify(('html' in data.content && data.content.html) || data.content || '', output)
+		return matter.stringify((typeof data.content === 'object' && 'html' in data.content && data.content.html) || data.content || '', output)
 	},
 
 	format: (data, clientId) => {
